@@ -22,8 +22,9 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
-Route::get('menus', [MenusController::class, 'index'])->name('menus');
-Route::get('get_data_menus', [MenusController::class, 'get_data_menus'])->name('get_data_menus');
+    Route::get('menus', [MenusController::class, 'index'])->name('menus');
+    Route::get('get_data_menus', [MenusController::class, 'get_data_menus'])->name('get_data_menus');
+    Route::post('save_menus', [MenusController::class, 'save_menus'])->name('save_menus');
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
